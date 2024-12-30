@@ -1,8 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { assets } from '../assets/assets'; // Assume you have more images in this object
 import { gsap } from 'gsap';
 
 const ImageSlider = () => {
+  const navigate = useNavigate(); // Initialize navigate function
+
   const images = [
     assets.festive_slide, // Add your first image URL
     assets.festive_slide1, // Add your second image URL
@@ -51,6 +54,11 @@ const ImageSlider = () => {
     });
   };
 
+  // Function to handle the "SHOP NOW" button click
+  const handleShopNowClick = () => {
+    navigate('/collection'); // Redirect to the collection page
+  };
+
   return (
     <div className="flex flex-col sm:flex-row border border-gray-400 z-10">
       {/* Left side with announcement */}
@@ -67,7 +75,10 @@ const ImageSlider = () => {
             Up to 50% Off
           </p>
           {/* Shop Now Button */}
-          <button className="mt-3 px-4 py-2 text-sm sm:text-base font-semibold text-white bg-[#000000] rounded-md hover:bg-[#e26bf7] transition">
+          <button
+            onClick={handleShopNowClick} // Call the navigation function
+            className="mt-3 px-4 py-2 text-sm sm:text-base font-semibold text-white bg-[#000000] rounded-md hover:bg-[#e26bf7] transition"
+          >
             SHOP NOW
           </button>
         </div>
