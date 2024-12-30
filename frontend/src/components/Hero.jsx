@@ -49,9 +49,11 @@ const Hero = () => {
           </h1>
           <div className="flex items-center gap-2">
             {/* Shop Now Button */}
+            <Link to="/collection"> {/* Redirect to the collection page */}
             <button className="mt-3 px-4 py-2 text-sm sm:text-base font-semibold text-white bg-[#000000] rounded-md hover:bg-[#e26bf7] transition">
               SHOP NOW
             </button>
+            </Link>
           </div>
         </div>
       </div>
