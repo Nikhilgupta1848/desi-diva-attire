@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import { assets } from '../assets/assets'; // Assume you'll add more images to this object
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+import { assets } from '../assets/assets';
 import { gsap } from 'gsap';
 
 const Hero = () => {
+  const navigate = useNavigate(); // Initialize the navigate function
+
   const images = [
     assets.hero_img1, // First image URL
     assets.hero_img2, // Second image URL
@@ -35,6 +38,10 @@ const Hero = () => {
     return () => clearInterval(interval); // Cleanup interval on unmount
   }, [images]);
 
+  const handleShopNow = () => {
+    navigate('/collection'); // Redirect to the collection page
+  };
+
   return (
     <div className="flex flex-col sm:flex-row border border-gray-400 z-10">
       {/* Hero left side */}
@@ -49,11 +56,12 @@ const Hero = () => {
           </h1>
           <div className="flex items-center gap-2">
             {/* Shop Now Button */}
-            <Link to="/collection"> {/* Redirect to the collection page */}
-            <button className="mt-3 px-4 py-2 text-sm sm:text-base font-semibold text-white bg-[#000000] rounded-md hover:bg-[#e26bf7] transition">
+            <button
+              className="mt-3 px-4 py-2 text-sm sm:text-base font-semibold text-white bg-[#000000] rounded-md hover:bg-[#e26bf7] transition"
+              onClick={handleShopNow} // Redirect on click
+            >
               SHOP NOW
             </button>
-            </Link>
           </div>
         </div>
       </div>
@@ -63,7 +71,7 @@ const Hero = () => {
           className="w-full h-auto object-cover" // Ensures the image fits on small screens
           ref={imageRef}
           src={images[0]}
-          srcSet=''
+          srcSet=""
           alt="Hero"
         />
       </div>
