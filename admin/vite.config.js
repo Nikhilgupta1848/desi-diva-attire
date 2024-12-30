@@ -5,10 +5,4 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
 
-  build: {
-    rollupOptions: {
-      // REMOVE any problematic externalizations here
-      external: ['react-router-dom'],
-    },
-  },
 })
