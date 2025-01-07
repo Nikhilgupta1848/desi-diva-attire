@@ -56,6 +56,10 @@ The application is deployed on **Vercel**. You can access it at:
 ## Live Preview of the app
 
 
+https://github.com/user-attachments/assets/c46ccb2c-f6f1-4415-b02c-72d3dfb67633
+
+
+
 ## Future Enhancements
 - **Wishlist Feature**: Allow users to save their favorite products.
 - **Enhanced Analytics**: Provide admins with detailed sales and user activity reports.
