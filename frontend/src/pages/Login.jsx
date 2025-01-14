@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const [currentState, setCurrentState] = useState("Login");
@@ -11,38 +12,33 @@ const Login = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // State for password visibility
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
 
     try {
       if (currentState === "Sign Up") {
-        const response = await axios.post(backendUrl + "/api/user/register", {
+        const response = await axios.post(`${backendUrl}/api/user/register`, {
           name,
           email,
           password,
         });
-
-        if (response.data.success) {
+        if (response.data.token) {
+          setToken(response.data.token);
+          localStorage.setItem("token", response.data.token);
           toast.success("Account created successfully!");
-          setCurrentState("Login"); // Switch to login state
-          setName(""); // Clear name input
-          setEmail(""); // Clear email input
-          setPassword(""); // Clear password input
         } else {
           toast.error(response.data.message);
         }
       } else {
-        const response = await axios.post(backendUrl + "/api/user/login", {
+        const response = await axios.post(`${backendUrl}/api/user/login`, {
           email,
           password,
         });
-
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
-          toast.success("Logged in successfully!");
-          navigate("/"); // Redirect to the homepage
         } else {
           toast.error(response.data.message);
         }
@@ -60,11 +56,8 @@ const Login = () => {
   }, [token]);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <form
-        onSubmit={onSubmitHandler}
-        className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800"
-      >
+    <div onSubmit={onSubmitHandler} className="flex flex-col min-h-screen">
+      <form className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800">
         <div className="inline-flex items-center gap-2 mb-2 mt-10">
           <p className="prata-regular text-3xl">{currentState}</p>
           <hr className="border-none h-[1.5px] w-8 bg-gray-800" />
@@ -89,17 +82,25 @@ const Login = () => {
           placeholder="Email"
           required
         />
-        <input
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          type="password"
-          className="w-full px-3 py-2 border border-gray-800"
-          placeholder="Password"
-          required
-        />
-
+        <div className="relative w-full">
+          <input
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            type={showPassword ? "text" : "password"} // Toggle input type
+            className="w-full px-3 py-2 border border-gray-800"
+            placeholder="Password"
+            required
+          />
+          <div
+            className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
+            onClick={() => setShowPassword((prev) => !prev)} // Toggle visibility
+          >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </div>
+        </div>
         <div className="w-full flex justify-between text-sm mt-[-8px]">
           <p className="cursor-pointer">Forgot your password?</p>
+
           {currentState === "Login" ? (
             <p
               onClick={() => setCurrentState("Sign Up")}
