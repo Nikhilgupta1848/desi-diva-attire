@@ -81,7 +81,7 @@ try {
 
 
     const userData = await userModel.findById(userId)
-           let cartData = await userData.cartData;
+           let cartData = userData.cartData;
    
         res.json({success: true, cartData})     
 
