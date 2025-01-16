@@ -42,7 +42,7 @@ const Login = () => {
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
-          toast.success("Login successful!");
+          toast.success("You are successfully logged in!");
         } else {
           toast.error(response.data.message);
         }

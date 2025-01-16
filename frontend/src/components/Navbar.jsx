@@ -1,20 +1,46 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { assets } from '../assets/assets';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom'; // Use useNavigate here
 import { ShopContext } from '../context/ShopContext';
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const { setShowSearch, getCartCount , navigate, token, setToken, setCartItems} = useContext(ShopContext);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const { setShowSearch, getCartCount, token, setToken, setCartItems } = useContext(ShopContext);
+  const navigate = useNavigate(); // Initialize navigate hook
 
   const logout = () => {
-    navigate('/login')
-   localStorage.removeItem('token')
-   setToken('')
-   setCartItems({})
-   
+    navigate('/login'); // Use navigate to redirect to login
+    localStorage.removeItem('token'); // Remove the token from local storage
+    setToken(''); // Clear the token in context
+    setCartItems({}); // Clear cart items in context
+  };
 
-  }
+  const handleDropdownToggle = () => {
+    setDropdownVisible((prev) => !prev);
+  };
+
+  const handleDropdownClose = (e) => {
+    if (
+      e.target.closest('.dropdown-menu') || 
+      e.target.closest('.profile-icon') || 
+      e.target.closest('.profile-dropdown')
+    ) return;
+    setDropdownVisible(false);
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    document.addEventListener('click', handleDropdownClose);
+    return () => document.removeEventListener('click', handleDropdownClose);
+  }, []);
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/login'); // Redirect to login page if no token is found
+    }
+  }, [token, navigate]); // Dependency array to run whenever the token changes
+
   return (
     <div className="flex items-center justify-between py-6 font-medium relative z-20">
       {/* Logo */}
@@ -47,22 +73,42 @@ const Navbar = () => {
         />
 
         {/* Profile Icon */}
-        <div className="group relative">
-            <img
-            onClick={()=> token ? null : navigate('/login')}
-              className="w-4 sm:w-5 cursor-pointer z-10"
-              src={assets.profile_icon}
-              alt="Profile"
-            />
-          {/* dropdown menu  */}
-          {token && 
-          <div className="hidden group-hover:block absolute dropdown-menu top-8 right-0 pt-4 ">
-            <div className="flex flex-col gap-2 w-36 sm:w-36 py-3 px-4 bg-slate-100 text-gray-500 rounded">
+        <div 
+          className="relative profile-icon"
+          onMouseEnter={() => setDropdownVisible(true)} // Show dropdown on hover
+        >
+          <img
+            onClick={handleDropdownToggle}
+            className="w-4 sm:w-5 cursor-pointer z-10"
+            src={assets.profile_icon}
+            alt="Profile"
+          />
+          {/* Dropdown Menu */}
+          {token && (
+            <div
+              className={`profile-dropdown absolute top-8 right-0 w-36 py-3 px-4 bg-slate-100 text-gray-500 rounded shadow-lg ${dropdownVisible ? 'block' : 'hidden'}`}
+            >
               <p className="cursor-pointer hover:text-black">My Profile</p>
-              <p onClick={()=>navigate('/orders')} className="cursor-pointer hover:text-black">Orders</p>
-              <p onClick={logout} className="cursor-pointer hover:text-black">Logout</p>
+              <p
+                onClick={() => {
+                  setDropdownVisible(false);
+                  navigate('/orders');
+                }}
+                className="cursor-pointer hover:text-black"
+              >
+                Orders
+              </p>
+              <p
+                onClick={() => {
+                  setDropdownVisible(false);
+                  logout();
+                }}
+                className="cursor-pointer hover:text-black"
+              >
+                Logout
+              </p>
             </div>
-          </div>}
+          )}
         </div>
 
         {/* Cart Icon */}
@@ -84,9 +130,7 @@ const Navbar = () => {
 
       {/* Sidebar for Small Screens */}
       <div
-        className={`fixed top-0 right-0 bottom-0 bg-white transition-all ${
-          visible ? 'w-full' : 'w-0'
-        } z-50 overflow-hidden`}
+        className={`fixed top-0 right-0 bottom-0 bg-white transition-all ${visible ? 'w-full' : 'w-0'} z-50 overflow-hidden`}
       >
         <div className="flex flex-col text-gray-600">
           <div
