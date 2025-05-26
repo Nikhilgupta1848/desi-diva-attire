@@ -1,3 +1,4 @@
+// In Cart.jsx
 import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
@@ -5,7 +6,7 @@ import { assets } from "../assets/assets";
 import CartTotal from "../components/CartTotal";
 
 const Cart = () => {
-  const { products, currency, cartItems, updateQuantity, navigate } =
+  const { products, currency, cartItems, updateQuantity, navigate, token } =
     useContext(ShopContext);
 
   const [cartData, setCartData] = useState([]);
@@ -28,6 +29,14 @@ const Cart = () => {
       setCartData(tempData);
     }
   }, [cartItems, products]);
+
+  const handleProceedToCheckout = () => {
+    if (!token) {
+      navigate("/login"); // Redirect to login/signup page if no token
+    } else {
+      navigate("/place-order"); // Proceed to place order if token exists
+    }
+  };
 
   return (
     <div className="border-t pt-14">
@@ -97,7 +106,7 @@ const Cart = () => {
           <CartTotal />
           <div className="w-full text-end">
             <button
-              onClick={() => navigate("/place-order")}
+              onClick={handleProceedToCheckout} // Removed the comment
               className="bg-black text-white text-sm my-8 px-8 py-3"
             >
               PROCEED TO CHECKOUT

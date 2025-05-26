@@ -1,19 +1,19 @@
-import  { useContext, useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { assets } from '../assets/assets';
-import { Link, NavLink, useNavigate } from 'react-router-dom'; // Use useNavigate here
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { ShopContext } from '../context/ShopContext';
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const { setShowSearch, getCartCount, token, setToken, setCartItems } = useContext(ShopContext);
-  const navigate = useNavigate(); // Initialize navigate hook
+  const navigate = useNavigate();
 
   const logout = () => {
-    navigate('/login'); // Use navigate to redirect to login
-    localStorage.removeItem('token'); // Remove the token from local storage
-    setToken(''); // Clear the token in context
-    setCartItems({}); // Clear cart items in context
+    navigate('/login');
+    localStorage.removeItem('token');
+    setToken('');
+    setCartItems({});
   };
 
   const handleDropdownToggle = () => {
@@ -22,8 +22,8 @@ const Navbar = () => {
 
   const handleDropdownClose = (e) => {
     if (
-      e.target.closest('.dropdown-menu') || 
-      e.target.closest('.profile-icon') || 
+      e.target.closest('.dropdown-menu') ||
+      e.target.closest('.profile-icon') ||
       e.target.closest('.profile-dropdown')
     ) return;
     setDropdownVisible(false);
@@ -35,11 +35,7 @@ const Navbar = () => {
     return () => document.removeEventListener('click', handleDropdownClose);
   }, []);
 
-  useEffect(() => {
-    if (!token) {
-      navigate('/login'); // Redirect to login page if no token is found
-    }
-  }, [token, navigate]); // Dependency array to run whenever the token changes
+  // Removed the previous useEffect that redirected to login if no token
 
   return (
     <div className="flex items-center justify-between py-6 font-medium relative z-20">
@@ -73,7 +69,7 @@ const Navbar = () => {
         />
 
         {/* Profile Icon */}
-        <div 
+        <div
           className="relative profile-icon"
           onMouseEnter={() => setDropdownVisible(true)} // Show dropdown on hover
         >
@@ -84,31 +80,45 @@ const Navbar = () => {
             alt="Profile"
           />
           {/* Dropdown Menu */}
-          {token && (
-            <div
-              className={`profile-dropdown absolute top-8 right-0 w-36 py-3 px-4 bg-slate-100 text-gray-500 rounded shadow-lg ${dropdownVisible ? 'block' : 'hidden'}`}
-            >
-              <p className="cursor-pointer hover:text-black">My Profile</p>
+          <div
+            className={`profile-dropdown absolute top-8 right-0 w-36 py-3 px-4 bg-slate-100 text-gray-500 rounded shadow-lg ${dropdownVisible ? 'block' : 'hidden'}`}
+          >
+            {token ? (
+              // If token exists (user is logged in)
+              <>
+                <p className="cursor-pointer hover:text-black">My Profile</p>
+                <p
+                  onClick={() => {
+                    setDropdownVisible(false);
+                    navigate('/orders');
+                  }}
+                  className="cursor-pointer hover:text-black"
+                >
+                  Orders
+                </p>
+                <p
+                  onClick={() => {
+                    setDropdownVisible(false);
+                    logout();
+                  }}
+                  className="cursor-pointer hover:text-black"
+                >
+                  Logout
+                </p>
+              </>
+            ) : (
+              // If no token (user is not logged in)
               <p
                 onClick={() => {
                   setDropdownVisible(false);
-                  navigate('/orders');
+                  navigate('/login'); // Redirect to login/signup page
                 }}
                 className="cursor-pointer hover:text-black"
               >
-                Orders
+                Login / Sign Up
               </p>
-              <p
-                onClick={() => {
-                  setDropdownVisible(false);
-                  logout();
-                }}
-                className="cursor-pointer hover:text-black"
-              >
-                Logout
-              </p>
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
         {/* Cart Icon */}
