@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import  { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import { assets } from '../assets/assets';
 import { gsap } from 'gsap';

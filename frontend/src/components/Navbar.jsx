@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import  { useContext, useState, useEffect } from 'react';
 import { assets } from '../assets/assets';
 import { Link, NavLink, useNavigate } from 'react-router-dom'; // Use useNavigate here
 import { ShopContext } from '../context/ShopContext';
