@@ -115,13 +115,25 @@ const sortProduct = () => {
        <p className='mb-3 text-sm font-medium'>TYPES</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
             <p className='flex gap-2'>
-              <input className='w-3 ' type="checkbox" value={'Topwear'} onChange={togglesubCategory} /> Topwear
+              <input className='w-3 ' type="checkbox" value={'Saree'} onChange={togglesubCategory} /> Saree
             </p>
             <p className='flex gap-2'>
-              <input className='w-3 ' type="checkbox" value={'Bottomwear'} onChange={togglesubCategory} /> Bottomwear
+              <input className='w-3 ' type="checkbox" value={'Dress'} onChange={togglesubCategory} /> Dress
             </p>
             <p className='flex gap-2'>
-              <input className='w-3 ' type="checkbox" value={'Winterwear'} onChange={togglesubCategory} /> Winterwear
+              <input className='w-3 ' type="checkbox" value={'Kurti Top'} onChange={togglesubCategory} /> Kurti Top
+            </p>
+            <p className='flex gap-2'>
+              <input className='w-3 ' type="checkbox" value={'Lehenga'} onChange={togglesubCategory} /> Lehenga
+            </p>
+            <p className='flex gap-2'>
+              <input className='w-3 ' type="checkbox" value={'Gown'} onChange={togglesubCategory} /> Gown
+            </p>
+            <p className='flex gap-2'>
+              <input className='w-3 ' type="checkbox" value={'Tops'} onChange={togglesubCategory} /> Tops
+            </p>
+            <p className='flex gap-2'>
+              <input className='w-3 ' type="checkbox" value={'Bottom Wears'} onChange={togglesubCategory} /> Bottom Wears
             </p>
           
         </div>

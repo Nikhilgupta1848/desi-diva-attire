@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { assets } from "../assets/assets";
 import axios from "axios";
 import { backendUrl } from "../App";
@@ -156,7 +156,7 @@ const Add = ({ token }) => {
             className="w-full px-3 py-2"
           >
             <option value="Women">Women</option>
-            <option value="Kids">Kids</option>
+            <option value="Kids">Kids-Girl</option>
           </select>
         </div>
 
@@ -167,9 +167,13 @@ const Add = ({ token }) => {
             value={subCategory}
             className="w-full px-3 py-2"
           >
-            <option value="Topwear">Topwear</option>
-            <option value="Bottomwear">Bottomwear</option>
-            <option value="Winterwear">Winterwear</option>
+            <option value="Saree">Saree</option>
+            <option value="Dress">Dress</option>
+            <option value="Kurti Top">Kurti Top</option>
+            <option value="Lehenga">Lehenga</option>
+            <option value="Gown">Gown</option>
+            <option value="Tops">Tops</option>
+            <option value="Bottom">Bottom Wear</option>
           </select>
         </div>
 
