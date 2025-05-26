@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 
 const Add = ({ token }) => {
   const [images, setImages] = useState([null, null, null, null]); // Array to hold images
-  const [brand, setBrand] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -38,7 +37,7 @@ const Add = ({ token }) => {
       const formData = new FormData();
 
       // Append form data
-      formData.append("brand", brand);
+      
       formData.append("name", name);
       formData.append("description", description);
       formData.append("price", price);
@@ -75,7 +74,7 @@ const Add = ({ token }) => {
   };
 
   const resetForm = () => {
-    setBrand("");
+    
     setName("");
     setDescription("");
     setPrice("");
@@ -110,18 +109,6 @@ const Add = ({ token }) => {
             </label>
           ))}
         </div>
-      </div>
-
-      <div className="w-full">
-        <p className="mb-3">Brand</p>
-        <input
-          onChange={(e) => setBrand(e.target.value)}
-          value={brand}
-          className="w-full max-w-[500px] px-3 py-2"
-          type="text"
-          placeholder="Type here"
-          required
-        />
       </div>
 
       <div className="w-full">

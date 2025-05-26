@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
@@ -61,13 +60,13 @@ const Orders = ({ token }) => {
                   if (index === order.items.length - 1) {
                     return (
                       <p className="py-0.5" key={index}>
-                      {item.brand} x {item.name} x {item.quantity} <span> {item.size} </span>{" "}
+                       {item.name} x {item.quantity} <span> {item.size} </span>{" "}
                       </p>
                     );
                   } else {
                     return (
                       <p className="py-0.5" key={index}>
-                       {item.brand} x {item.name} x {item.quantity} <span> {item.size} </span>{" "}
+                        {item.name} x {item.quantity} <span> {item.size} </span>{" "}
                         ,{" "}
                       </p>
                     );

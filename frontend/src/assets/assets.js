@@ -134,7 +134,6 @@ export const assets = {
 export const products = [
     {
         _id: "aaaaa",
-        brand: "KOTTY",
         name: "Women Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 1000,
@@ -148,7 +147,6 @@ export const products = [
     
     {
         _id: "aaaac",
-        brand: "KOTTY",
         name: "Girls Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 2200,
@@ -162,7 +160,6 @@ export const products = [
     
     {
         _id: "aaaae",
-        brand: "Roadster",
         name: "Women Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 1300,
@@ -175,7 +172,6 @@ export const products = [
     },
     {
         _id: "aaaaf",
-        brand: "Roadster",
         name: "Girls Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 1400,
@@ -190,7 +186,6 @@ export const products = [
     
     {
         _id: "aaaai",
-        brand: "Roadster",
         name: "Girls Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 1000,
@@ -205,7 +200,6 @@ export const products = [
     
     {
         _id: "aaaam",
-        brand: "Roadster",
         name: "Women Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 1300,
@@ -220,7 +214,6 @@ export const products = [
     
     {
         _id: "aaaap",
-        brand: "Roadster",
         name: "Girls Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 1700,
@@ -234,7 +227,6 @@ export const products = [
     
      {
         _id: "aaaat",
-        brand: "Roadster",
         name: "Women Palazzo Pants with Waist Belt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 1900,
@@ -247,7 +239,6 @@ export const products = [
     },
     {
         _id: "aaaau",
-        brand: "Roadster",
         name: "Women Zip-Front Relaxed Fit Jacket",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 1799,
@@ -260,7 +251,6 @@ export const products = [
     },
     {
         _id: "aaaav",
-        brand: "Roadster",
         name: "Women Palazzo Pants with Waist Belt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 2000,
@@ -275,7 +265,6 @@ export const products = [
    
     {
         _id: "aaaay",
-        brand: "Roadster",
         name: "Girls Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 1090,
@@ -288,7 +277,6 @@ export const products = [
     },
     {
         _id: "aaaaz",
-        brand: "Roadster",
         name: "Women Zip-Front Relaxed Fit Jacket",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 2020,
@@ -301,7 +289,6 @@ export const products = [
     },
     {
         _id: "aaaba",
-        brand: "Roadster",
         name: "Girls Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 2000,
@@ -315,7 +302,6 @@ export const products = [
     
     {
         _id: "aaabc",
-        brand: "Roadster",
         name: "Women Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 2100,
@@ -328,7 +314,6 @@ export const products = [
     },
     {
         _id: "aaabd",
-        brand: "Roadster",
         name: "Girls Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 2400,
@@ -342,7 +327,6 @@ export const products = [
     
     {
         _id: "aaabg",
-        brand: "Roadster",
         name: "Girls Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 2300,
@@ -355,7 +339,6 @@ export const products = [
     },
     {
         _id: "aaabh",
-        brand: "Roadster",
         name: "Women Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 2600,
@@ -368,7 +351,6 @@ export const products = [
     },
     {
         _id: "aaabi",
-        brand: "Roadster",
         name: "Women Zip-Front Relaxed Fit Jacket",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 2400,
@@ -381,7 +363,6 @@ export const products = [
     },
     {
         _id: "aaabj",
-        brand: "Roadster",
         name: "Women Zip-Front Relaxed Fit Jacket",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 2700,
@@ -394,7 +375,6 @@ export const products = [
     },
     {
         _id: "aaabk",
-        brand: "Roadster",
         name: "Women Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 2500,
@@ -409,7 +389,6 @@ export const products = [
    
     {
         _id: "aaabr",
-        brand: "Roadster",
         name: "Women Zip-Front Relaxed Fit Jacket",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 3100,
@@ -423,7 +402,6 @@ export const products = [
     
     {
         _id: "aaaby",
-        brand: "Roadster",
         name: "Women Zip-Front Relaxed Fit Jacket",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 3200,

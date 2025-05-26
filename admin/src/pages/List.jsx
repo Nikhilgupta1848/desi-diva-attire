@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { backendUrl, currency } from "../App";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -74,7 +74,6 @@ const List = ({ token }) => {
         {/* Table Header */}
         <div className="grid grid-cols-2 sm:grid-cols-[1fr_2fr_3fr_1fr_1fr_1fr] items-center py-3 px-4 border-b-2 bg-gray-100 text-base font-bold">
           <span className="col-span-2 sm:col-auto">Image</span>
-          <span className="hidden sm:block">Brand</span>
           <span className="hidden sm:block">Name</span>
           <span className="hidden sm:block">Category</span>
           <span className="hidden sm:block">Price</span>
@@ -93,11 +92,6 @@ const List = ({ token }) => {
               src={item.image[0]}
               alt={item.name}
             />
-
-            {/* Brand */}
-            <span className="font-medium col-span-2 sm:col-auto sm:font-semibold sm:text-left text-lg">
-              {item.brand}
-            </span>
 
             {/* Name */}
             <span className="text-gray-700 col-span-2 sm:col-auto text-lg">

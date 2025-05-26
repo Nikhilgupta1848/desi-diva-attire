@@ -4,9 +4,9 @@ import productModel from "../models/productModel.js";
 // Controller for adding a product
 const addProduct = async (req, res) => {
   try {
-    const { brand, name, description, price, category, subCategory, sizes, bestseller } = req.body;
+    const { name, description, price, category, subCategory, sizes, bestseller } = req.body;
 
-    if (!brand || !name || !description || !price) {
+    if (!name || !description || !price) {
       return res.status(400).json({ success: false, message: "Missing required fields" });
     }
 
@@ -36,7 +36,6 @@ const addProduct = async (req, res) => {
 
     // Prepare product data
     const productData = {
-      brand,
       name,
       description,
       category,
