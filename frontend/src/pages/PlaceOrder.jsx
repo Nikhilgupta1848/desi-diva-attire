@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import  { useContext, useState } from "react";
 import Title from "../components/Title";
 import CartTotal from "../components/CartTotal";
 import { assets } from "../assets/assets";
@@ -43,7 +43,7 @@ const PlaceOrder = () => {
 
     const options = {
       
-      key : import.meta.VITE_RAZORPAY_KEY_ID,
+      key : import.meta.RAZORPAY_KEY_ID,
       amount : order.amount,
       currency: order.currency,
       name : 'Order Payment',
