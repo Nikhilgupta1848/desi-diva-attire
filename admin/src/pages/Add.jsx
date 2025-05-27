@@ -79,7 +79,7 @@ const Add = ({ token }) => {
     setDescription("");
     setPrice("");
     setCategory("Women");
-    setSubCategory("Topwear");
+    setSubCategory("Saree");
     setBestseller(false);
     setSizes([]);
     setImages([null, null, null, null]); // Reset images
@@ -155,6 +155,7 @@ const Add = ({ token }) => {
             className="w-full px-3 py-2"
           >
             <option value="Saree">Saree</option>
+            <option value="Suit">Suit</option>
             <option value="Dress">Dress</option>
             <option value="Kurti Top">Kurti Top</option>
             <option value="Lehenga">Lehenga</option>
