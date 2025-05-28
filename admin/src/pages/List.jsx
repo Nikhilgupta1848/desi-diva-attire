@@ -72,7 +72,7 @@ const List = ({ token }) => {
       <p className="mb-3 text-xl font-semibold">All Products List</p>
       <div className="flex flex-col gap-4">
         {/* Table Header */}
-        <div className="grid grid-cols-2 sm:grid-cols-[1fr_2fr_3fr_1fr_1fr_1fr] items-center py-3 px-4 border-b-2 bg-gray-100 text-base font-bold">
+        <div className="grid grid-cols-2 sm:grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center py-3 px-4 border-b-2 bg-gray-100 text-base font-bold">
           <span className="col-span-2 sm:col-auto">Image</span>
           <span className="hidden sm:block">Name</span>
           <span className="hidden sm:block">Category</span>
