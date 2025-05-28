@@ -84,7 +84,7 @@ const List = ({ token }) => {
         {list.map((item, index) => (
           <div
             key={index}
-            className="grid grid-cols-2 sm:grid-cols-[1fr_2fr_3fr_1fr_1fr_1fr] gap-4 sm:gap-0 items-center py-3 px-4 border-b text-base"
+            className="grid grid-cols-2 sm:grid-cols-[1fr_3fr_1fr_1fr_1fr] gap-4 sm:gap-0 items-center py-3 px-4 border-b text-base"
           >
             {/* Image */}
             <img
