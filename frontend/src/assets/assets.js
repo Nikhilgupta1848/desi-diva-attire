@@ -139,7 +139,7 @@ export const products = [
         price: 1000,
         image: [p_img1],
         category: "Women",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["S", "M", "L"],
         date: 1716634345448,
         bestseller: true
@@ -152,7 +152,7 @@ export const products = [
         price: 2200,
         image: [p_img3],
         category: "Kids",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["S", "L", "XL"],
         date: 1716234545448,
         bestseller: true
@@ -165,7 +165,7 @@ export const products = [
         price: 1300,
         image: [p_img5],
         category: "Women",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["M", "L", "XL"],
         date: 1716622345448,
         bestseller: true
@@ -177,7 +177,7 @@ export const products = [
         price: 1400,
         image: [p_img6],
         category: "Kids",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["S", "L", "XL"],
         date: 1716623423448,
         bestseller: true
@@ -191,7 +191,7 @@ export const products = [
         price: 1000,
         image: [p_img9],
         category: "Kids",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["M", "L", "XL"],
         date: 1716621235448,
         bestseller: false
@@ -205,7 +205,7 @@ export const products = [
         price: 1300,
         image: [p_img13],
         category: "Women",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["S", "M", "L", "XL"],
         date: 1716625545448,
         bestseller: false
@@ -219,7 +219,7 @@ export const products = [
         price: 1700,
         image: [p_img16],
         category: "Kids",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["S", "M", "L", "XL"],
         date: 1716628845448,
         bestseller: false
@@ -270,7 +270,7 @@ export const products = [
         price: 1090,
         image: [p_img25],
         category: "Kids",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["S", "M", "L", "XL"],
         date: 1716638745448,
         bestseller: false
@@ -294,7 +294,7 @@ export const products = [
         price: 2000,
         image: [p_img27],
         category: "Kids",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["S", "M", "L", "XL"],
         date: 1716640945448,
         bestseller: false
@@ -307,7 +307,7 @@ export const products = [
         price: 2100,
         image: [p_img29],
         category: "Women",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["S", "M", "L", "XL"],
         date: 1716643145448,
         bestseller: false
@@ -319,7 +319,7 @@ export const products = [
         price: 2400,
         image: [p_img30],
         category: "Kids",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["S", "M", "L", "XL"],
         date: 1716644245448,
         bestseller: false
@@ -332,7 +332,7 @@ export const products = [
         price: 2300,
         image: [p_img33],
         category: "Kids",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["S", "M", "L", "XL"],
         date: 1716647545448,
         bestseller: false
@@ -344,7 +344,7 @@ export const products = [
         price: 2600,
         image: [p_img34],
         category: "Women",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["S", "M", "L", "XL"],
         date: 1716648645448,
         bestseller: false
@@ -380,7 +380,7 @@ export const products = [
         price: 2500,
         image: [p_img37],
         category: "Women",
-        subCategory: "Topwear",
+        subCategory: "Tops",
         sizes: ["S", "M", "L", "XL"],
         date: 1716651945448,
         bestseller: false
