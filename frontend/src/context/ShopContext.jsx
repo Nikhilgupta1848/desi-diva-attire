@@ -36,7 +36,7 @@ const ShopContextProvider = (props) => {
     try {
       const response = await axios.post(
         `${backendUrl}/api/cart/get`,
-        {},
+        { userId: localStorage.getItem("userId") },
         { headers: { token } }
       );
       if (response.data.success) {
@@ -129,6 +129,48 @@ const ShopContextProvider = (props) => {
     return totalAmount;
   };
 
+  // 💾 Save cart to localStorage when not logged in
+  useEffect(() => {
+    if (!token) {
+      localStorage.setItem("guest_cart", JSON.stringify(cartItems));
+    }
+  }, [cartItems, token]);
+
+  // 🔁 Restore guest cart on first load
+  useEffect(() => {
+    if (!token) {
+      const savedCart = localStorage.getItem("guest_cart");
+      if (savedCart) {
+        setCartItems(JSON.parse(savedCart));
+      }
+    }
+  }, []);
+
+  // 🔀 Merge guest cart to backend after login
+  const mergeGuestCart = async (newToken) => {
+    const guestCart = JSON.parse(localStorage.getItem("guest_cart")) || {};
+
+    for (const itemId in guestCart) {
+      for (const size in guestCart[itemId]) {
+        const quantity = guestCart[itemId][size];
+        if (quantity > 0) {
+          try {
+            await axios.post(
+              `${backendUrl}/api/cart/add`,
+              { itemId, size, quantity },
+              { headers: { token: newToken } }
+            );
+          } catch (err) {
+            console.error("Cart merge error", err);
+          }
+        }
+      }
+    }
+
+    localStorage.removeItem("guest_cart");
+    await getUserCart(newToken); // Refresh backend cart
+  };
+
   // Effect to fetch product data when component mounts
   useEffect(() => {
     getProductData();
@@ -159,6 +201,7 @@ const ShopContextProvider = (props) => {
     backendUrl,
     token,
     setToken,
+    mergeGuestCart, // ✅ Export this to use in login page
   };
 
   return (

@@ -7,19 +7,24 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const [currentState, setCurrentState] = useState("Login");
-  const { token, setToken, navigate, backendUrl } = useContext(ShopContext);
+  const {
+    token,
+    setToken,
+    navigate,
+    backendUrl,
+    mergeGuestCart, // ✅ added
+  } = useContext(ShopContext);
 
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // State for password visibility
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
 
     try {
       if (currentState === "Sign Up") {
-        // Sign-up process
         const response = await axios.post(`${backendUrl}/api/user/register`, {
           name,
           email,
@@ -28,12 +33,11 @@ const Login = () => {
 
         if (response.data.success) {
           toast.success("Account created successfully! Please log in.");
-          setCurrentState("Login"); // Redirect to login form
+          setCurrentState("Login");
         } else {
           toast.error(response.data.message);
         }
       } else {
-        // Login process
         const response = await axios.post(`${backendUrl}/api/user/login`, {
           email,
           password,
@@ -42,7 +46,11 @@ const Login = () => {
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
+
+          await mergeGuestCart(response.data.token); // ✅ merge guest cart
           toast.success("You are successfully logged in!");
+
+          navigate("/cart"); // ✅ redirect to cart instead of homepage
         } else {
           toast.error(response.data.message);
         }
@@ -54,10 +62,8 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (token && currentState === "Login") {
-      navigate("/"); // Redirect to home page after successful login
-    }
-  }, [token, currentState, navigate]);
+    // No need for auto-redirect here anymore
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -91,21 +97,20 @@ const Login = () => {
           <input
             onChange={(e) => setPassword(e.target.value)}
             value={password}
-            type={showPassword ? "text" : "password"} // Toggle input type
+            type={showPassword ? "text" : "password"}
             className="w-full px-3 py-2 border border-gray-800"
             placeholder="Password"
             required
           />
           <div
             className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
-            onClick={() => setShowPassword((prev) => !prev)} // Toggle visibility
+            onClick={() => setShowPassword((prev) => !prev)}
           >
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </div>
         </div>
         <div className="w-full flex justify-between text-sm mt-[-8px]">
           <p className="cursor-pointer underline">Forgot your password?</p>
-
           {currentState === "Login" ? (
             <p
               onClick={() => setCurrentState("Sign Up")}

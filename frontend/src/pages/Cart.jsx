@@ -49,6 +49,9 @@ const Cart = () => {
             (product) => product._id === item._id
           );
 
+          // 🔧 FIX: skip rendering if product not found
+          if (!productData) return null;
+
           return (
             <div
               key={index}

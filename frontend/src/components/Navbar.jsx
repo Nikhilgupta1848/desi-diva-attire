@@ -1,19 +1,20 @@
-import { useContext, useState, useEffect } from 'react';
-import { assets } from '../assets/assets';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { ShopContext } from '../context/ShopContext';
+import { useContext, useState, useEffect } from "react";
+import { assets } from "../assets/assets";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const { setShowSearch, getCartCount, token, setToken, setCartItems } = useContext(ShopContext);
+  const { setShowSearch, getCartCount, token, setToken, setCartItems } =
+    useContext(ShopContext);
   const navigate = useNavigate();
 
   const logout = () => {
-    navigate('/login');
-    localStorage.removeItem('token');
-    setToken('');
+    localStorage.removeItem("token");
+    setToken("");
     setCartItems({});
+    navigate("/");
   };
 
   const handleDropdownToggle = () => {
@@ -22,17 +23,18 @@ const Navbar = () => {
 
   const handleDropdownClose = (e) => {
     if (
-      e.target.closest('.dropdown-menu') ||
-      e.target.closest('.profile-icon') ||
-      e.target.closest('.profile-dropdown')
-    ) return;
+      e.target.closest(".dropdown-menu") ||
+      e.target.closest(".profile-icon") ||
+      e.target.closest(".profile-dropdown")
+    )
+      return;
     setDropdownVisible(false);
   };
 
   // Close dropdown when clicking outside
   useEffect(() => {
-    document.addEventListener('click', handleDropdownClose);
-    return () => document.removeEventListener('click', handleDropdownClose);
+    document.addEventListener("click", handleDropdownClose);
+    return () => document.removeEventListener("click", handleDropdownClose);
   }, []);
 
   // Removed the previous useEffect that redirected to login if no token
@@ -46,10 +48,10 @@ const Navbar = () => {
 
       {/* Navigation Links */}
       <ul className="hidden sm:flex gap-5 text-md text-gray-700">
-        {['HOME', 'COLLECTION', 'ABOUT', 'CONTACT'].map((item, index) => (
+        {["HOME", "COLLECTION", "ABOUT", "CONTACT"].map((item, index) => (
           <NavLink
             key={index}
-            to={item === 'HOME' ? '/' : `/${item.toLowerCase()}`}
+            to={item === "HOME" ? "/" : `/${item.toLowerCase()}`}
             className="flex flex-col items-center gap-1"
           >
             <p>{item}</p>
@@ -81,7 +83,9 @@ const Navbar = () => {
           />
           {/* Dropdown Menu */}
           <div
-            className={`profile-dropdown absolute top-8 right-0 w-36 py-3 px-4 bg-slate-100 text-gray-500 rounded shadow-lg ${dropdownVisible ? 'block' : 'hidden'}`}
+            className={`profile-dropdown absolute top-8 right-0 w-36 py-3 px-4 bg-slate-100 text-gray-500 rounded shadow-lg ${
+              dropdownVisible ? "block" : "hidden"
+            }`}
           >
             {token ? (
               // If token exists (user is logged in)
@@ -90,7 +94,7 @@ const Navbar = () => {
                 <p
                   onClick={() => {
                     setDropdownVisible(false);
-                    navigate('/orders');
+                    navigate("/orders");
                   }}
                   className="cursor-pointer hover:text-black"
                 >
@@ -111,7 +115,7 @@ const Navbar = () => {
               <p
                 onClick={() => {
                   setDropdownVisible(false);
-                  navigate('/login'); // Redirect to login/signup page
+                  navigate("/login"); // Redirect to login/signup page
                 }}
                 className="cursor-pointer hover:text-black"
               >
@@ -123,7 +127,11 @@ const Navbar = () => {
 
         {/* Cart Icon */}
         <Link to="/cart" className="relative">
-          <img src={assets.cart_icon} className="w-4 sm:w-5 min-w-4 sm:min-w-5" alt="Cart" />
+          <img
+            src={assets.cart_icon}
+            className="w-4 sm:w-5 min-w-4 sm:min-w-5"
+            alt="Cart"
+          />
           <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
             {getCartCount()}
           </p>
@@ -140,22 +148,28 @@ const Navbar = () => {
 
       {/* Sidebar for Small Screens */}
       <div
-        className={`fixed top-0 right-0 bottom-0 bg-white transition-all ${visible ? 'w-full' : 'w-0'} z-50 overflow-hidden`}
+        className={`fixed top-0 right-0 bottom-0 bg-white transition-all ${
+          visible ? "w-full" : "w-0"
+        } z-50 overflow-hidden`}
       >
         <div className="flex flex-col text-gray-600">
           <div
             onClick={() => setVisible(false)}
             className="flex items-center gap-4 p-3 cursor-pointer"
           >
-            <img className="h-4 rotate-180" src={assets.dropdown_icon} alt="Back" />
+            <img
+              className="h-4 rotate-180"
+              src={assets.dropdown_icon}
+              alt="Back"
+            />
             <p>Back</p>
           </div>
-          {['HOME', 'COLLECTION', 'ABOUT', 'CONTACT'].map((item, index) => (
+          {["HOME", "COLLECTION", "ABOUT", "CONTACT"].map((item, index) => (
             <NavLink
               key={index}
               onClick={() => setVisible(false)}
               className="py-2 pl-6 border"
-              to={item === 'HOME' ? '/' : `/${item.toLowerCase()}`}
+              to={item === "HOME" ? "/" : `/${item.toLowerCase()}`}
             >
               {item}
             </NavLink>

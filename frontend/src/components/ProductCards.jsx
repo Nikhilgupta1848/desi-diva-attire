@@ -1,16 +1,14 @@
-
-import { assets } from '../assets/assets';
+import { assets } from "../assets/assets";
 
 const ProductCards = () => {
   return (
     <div className="flex flex-col sm:flex-row justify-center items-center gap-6 px-4 sm:px-0 py-10">
-      
       {/* Weightless Lehengas Card */}
       <div className="w-full sm:w-1/2 h-[500px] relative overflow-hidden rounded-lg shadow-lg">
-        <img 
-          src={assets.lehenga_card} 
-          alt="Weightless Lehengas" 
-          className="w-full h-full object-cover" 
+        <img
+          src={assets.lehenga_card}
+          alt="Weightless Lehengas"
+          className="w-full h-full object-cover"
         />
         <div className="absolute bottom-4 left-4 text-white">
           <p className="text-sm sm:text-lg font-semibold">WEIGHTLESS</p>
@@ -20,10 +18,10 @@ const ProductCards = () => {
 
       {/* Classic Kurtas Card */}
       <div className="w-full sm:w-1/2 h-[500px] relative overflow-hidden rounded-lg shadow-lg">
-        <img 
-          src={assets.kurta_card} 
-          alt="Classic Kurtas" 
-          className="w-full h-full object-cover" 
+        <img
+          src={assets.kurta_card}
+          alt="Classic Kurtas"
+          className="w-full h-full object-cover"
         />
         <div className="absolute bottom-4 left-4 text-white">
           <p className="text-sm sm:text-lg font-semibold">CLASSIC</p>
@@ -33,10 +31,10 @@ const ProductCards = () => {
 
       {/* Stellar Sarees Card */}
       <div className="w-full sm:w-1/2 h-[500px] relative overflow-hidden rounded-lg shadow-lg">
-        <img 
-          src={assets.saree_card} 
-          alt="Stellar Sarees" 
-          className="w-full h-full object-cover" 
+        <img
+          src={assets.saree_card}
+          alt="Stellar Sarees"
+          className="w-full h-full object-cover"
         />
         <div className="absolute bottom-4 left-4 text-white">
           <p className="text-sm sm:text-lg font-semibold">STELLAR</p>
@@ -45,6 +43,6 @@ const ProductCards = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ProductCards;
